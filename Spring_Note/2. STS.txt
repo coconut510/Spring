@@ -1,0 +1,37 @@
+@ STS 란?
+-> Spring Tool Suite 의 약자로 Spring Framework를 사용하기 위한 개발 툴을 말함
+-> 일반적으로 별도의 설치 도구를 통해 설치하나 이클립스 IDE에서 제공하는
+STS plug-in 을 통해 간단히 설치 할 수 있음
+
+* STS 공식 설치 사이트
+
+https://spring.io/tools/sts/all
+
+
+Spring 설정
+
+마켓에서 설치
+
+pom.xml 에서
+
+java- version : 1.6 에서 1.8로 설정
+
+springframework-version 3.1.1 RELEASE에서 -> 5.0.6.RELEASE로 수정
+
+프로젝트 - > preperence -> Project Facets -> Java 1.8로 수정
+
+Project Facets 에서 우측에 runtime -> new 버튼 -> 서버 설정
+
+topcat lib경로에 jstl1.2.jar 파일 추가해줘야됨.
+
+pom.xml에서
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+위부분 삭제.
+
+
+index.html 은 src-main-webapp아래에 생성

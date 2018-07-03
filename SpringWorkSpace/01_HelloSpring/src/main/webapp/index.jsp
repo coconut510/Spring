@@ -7,6 +7,16 @@
 <title>메인화면</title>
 </head>
 <body>
-기본 페이지 입니다.
+	<!-- <form action="/dependency1" method="get">
+		<input type="text" name="beanName" />
+		<input type="submit" value="전송"/>
+	</form> -->
+ 	<a href="/dependency1">1. 로연이와의 재결합도 예제</a><br>
+ 	<a href="/dependency2">2. 의존성 예제</a><br>
+ 	<a href="/beanTest1">3. scope 속성</a><br>
+ 	<a href="/beanTest2">4. Collection_List 처리 </a><br>
+ 	<a href="/beanTest3">5. Collection_Set 처리 </a><br>
+ 	<a href="/beanTest4">6. Collection_Map 처리 </a><br>
+ 	<a href="/ano">7. 어노테이션 로연 객체 생성 </a><br>
 </body>
 </html>
