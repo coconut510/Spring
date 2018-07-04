@@ -35,3 +35,10 @@ pom.xml에서
 
 
 index.html 은 src-main-webapp아래에 생성
+
+src-main-webapp-WEB-INF - web.xml 에
+
+<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+웰컴파일 추가
