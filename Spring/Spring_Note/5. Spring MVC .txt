@@ -64,14 +64,71 @@ web.xml에서
 위의 코드를 web.xml에 넣으면 된다.
 
 
+pom.xml의 dependencies 아래에 추가해준다.
+	<dependencies>
+		<!-- DBCP(Data Base Connection Pool)-->
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+		
+		<!-- Spring -->
+
+
+ojdbc-6 설정
+추가해주고
+	<repositories>
+		<repository>
+			<id>oracle</id>
+			<name>ORACLE JDBC Repository</name>
+			<url>https://code.lds.org/nexus/content/groups/main-repo</url>
+		</repository>
+	</repositories>
+
+
+dependencies 안에
+
+	<!-- OJDBC 6 -->
+		<dependency>
+			<groupId>com.jslsolucoes</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.1.0</version>
+		</dependency>
+
+추가
+
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+        <dependency>
+               <groupId>org.springframework</groupId>
+               <artifactId>spring-jdbc</artifactId>
+               <version>5.0.6.RELEASE</version>
+        </dependency>
+		 
+
+위에거도 추가
+
+src -> main -> webapp-> WEB-INF -> spring -> root-context.xml 안에 
+
+<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username" value="spring"/>
+		<property name="password" value="spring"/>
+	</bean>		
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+이것도 추가.
 
 
 
 
-
-
-
-
+return "redirect:/index.jsp";// viewResolver 관여 없이 경로를 직접 설정해 줄때.
 
 
 
