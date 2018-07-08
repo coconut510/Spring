@@ -1,0 +1,5 @@
+INDEX VERSION 1.130
+C:\Users\user\Documents\GitDesktop\Spring\SpringWorkSpace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\862419545.index
+\01_HelloSpring\src\main\java
+C:\Users\user\Documents\GitDesktop\Spring\SpringWorkSpace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\355269315.index
+\01_HelloSpring\src\main\java
