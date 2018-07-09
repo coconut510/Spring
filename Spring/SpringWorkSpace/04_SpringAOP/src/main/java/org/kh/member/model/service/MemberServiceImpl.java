@@ -32,38 +32,32 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Override
 	public Member selectOneMember(Member vo) {
-		System.out.println("비즈니스 로직 호출");
 		Member m = memberDAO.selectOneMember(jdbcTemplate, vo);
 		return m;
 	}
 
 	@Override
 	public int logout(Member m) {
-		System.out.println("비즈니스 로직 호출");
 		int result = memberDAO.logout(jdbcTemplate, m);
 		return result;
 	}
 
 	public int updateMember(Member vo) {
-		System.out.println("비즈니스 로직 호출");
 		int result = memberDAO.updateMember(jdbcTemplate,vo);
 		return result;
 	}
 
 	public int insertMember(Member vo) {
-		System.out.println("비즈니스 로직 호출");
 		int result = memberDAO.insertMember(jdbcTemplate, vo);
 		return result;
 	}
 
 	public int deleteMember(Member vo) {	
-		System.out.println("비즈니스 로직 호출");
 		int result = memberDAO.deleteMember(jdbcTemplate,vo);
 		return result;
 	}
 
 	public ArrayList<Member> selectAllMember() {		
-		System.out.println("비즈니스 로직 호출");
 		ArrayList<Member> list = memberDAO.selectAllMember(jdbcTemplate);
 		return list;
 	}

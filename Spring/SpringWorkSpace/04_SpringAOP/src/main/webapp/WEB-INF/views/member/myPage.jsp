@@ -17,8 +17,8 @@
 	<h1>마이페이지</h1>
 	<form action="/mUpdate.do" method="post">
 		ID : <input type="text" value="${member.userId}" name="userId" readonly /><br>
-		PW : <input type="password" value="${member.userPw}" name="userPw" /><br>
-		PW_RE : <input type="password" value="${member.userPw}"  /><br>
+		PW : <input type="password" value="********" name="userPw" /><br>
+		PW_RE : <input type="password" value="********"  /><br>
 		이름 : <input type="text" value="${member.userName}"  name="userName" readonly/><br>
 		폰  : <input type="text" value="${member.phone}"  name="phone"/><br>
 		<input type="submit" value="회원정보변경"/>

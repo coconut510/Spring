@@ -229,7 +229,7 @@ NoSuchBeanDefinitionExcepition을 발생시킴
 	(해당 객체가 메모리에 존재하지 않는다는 의미)
 
 
-## @ Quilifier ##
+## @Quilifier ##
 -> @Autowired 를 쓰면 해당 타입의 객체를 넣어줌
 -> 그러나 의존성 주입 대상이 되는 같은 타입의 객체가 2개일때 문제가 발생함
 -> 만약 SonySpeaker와 AppleSpeaker 객체가 모두 메모리에 생성되어 있는 상황이라면

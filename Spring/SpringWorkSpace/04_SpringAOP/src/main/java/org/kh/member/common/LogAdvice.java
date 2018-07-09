@@ -5,14 +5,35 @@ import java.util.Date;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.stereotype.Service;
 
+@Service
+@Aspect
 public class LogAdvice {
+	
+	// 포인트컷 생성
+	@Pointcut("execution(* org.kh.member.model.service..*ServiceImpl.*(..))")
+	public void allPointcut() {}// 포인트컷의 ID 용도로 사용됨
+	@Pointcut("execution(int org.kh.member.model.service.MemberServiceImpl.*Member(org.kh.member.model.vo.Member))")
+	public void transactionPointcut() {}
+	
+	
+	@Before("allPointcut()")// 어드바이스 시점 및 포인트컷 설정.
 	public void printLog() {
 		System.out.println("[공통 로그 - LogAdvice] : 비즈니스 로직 수행 전 로그 기록입니다.");
 	}
+	
 	public void printTransactionLog() {
 		System.out.println("[트랜잭션 로그 - LogAdvice] : 트랜잭션 처리 로그");
 	}
+	
+	@Around("transactionPointcut()")
 	public Object aroundLog(ProceedingJoinPoint pjp) throws Throwable{
 		
 		long now = System.currentTimeMillis();

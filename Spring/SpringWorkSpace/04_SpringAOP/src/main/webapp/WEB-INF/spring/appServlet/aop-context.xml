@@ -7,9 +7,9 @@
 	
 	
 	<!-- LogAdvice Bean 객체 생성 -->
-   	<bean id="log" class="org.kh.member.common.LogAdvice"/>
+   <!-- 	<bean id="log" class="org.kh.member.common.LogAdvice"/>
 	
-	<!-- 등록 및 설정 -->
+	등록 및 설정
 	<aop:config proxy-target-class="true">
 		<aop:pointcut id="allPointcut" expression="execution(* org.kh.member.model.service.MemberServiceImpl.*(..))"/>
 		<aop:pointcut id="transactionPointcut" expression="execution(int org.kh.member.model.service.MemberServiceImpl.*Member(org.kh.member.model.vo.Member))"/> 
@@ -17,7 +17,12 @@
 			<aop:around pointcut-ref="allPointcut" method="aroundLog"/>
 			<aop:after pointcut-ref="transactionPointcut" method="printTransactionLog"/>
 		</aop:aspect>
-	</aop:config> 
+	</aop:config>  -->
 	
+	
+	<!-- AOP를 어노테이션 방식으로 사용하겠음 -->
+	<aop:aspectj-autoproxy proxy-target-class="true">
+		
+	</aop:aspectj-autoproxy>
 
 </beans>
