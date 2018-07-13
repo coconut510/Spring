@@ -5,7 +5,146 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2018-07-05T21:36:00Z</updated>
+  <updated>2018-07-12T17:52:00Z</updated>
+  <entry>
+    <title>Spring Cloud Data Flow 1.6 M2 released</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/07/12/spring-cloud-data-flow-1-6-m2-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Mark Pollack</name>
+    </author>
+    <id>tag:spring.io,2018-07-12:3329</id>
+    <updated>2018-07-12T17:52:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;The &lt;a href="https://cloud.spring.io/spring-cloud-dataflow/"&gt;Spring Cloud Data Flow&lt;/a&gt; team is pleased to announce the release of &lt;code&gt;1.6 M2&lt;/code&gt;. Follow the &lt;em&gt;Getting Started&lt;/em&gt; guides for &lt;a href="https://docs.spring.io/spring-cloud-dataflow/docs/1.6.0.M2/reference/htmlsingle/#getting-started"&gt;Local Server&lt;/a&gt;, &lt;a href="https://docs.spring.io/spring-cloud-dataflow-server-cloudfoundry/docs/1.6.0.M2/reference/htmlsingle/#getting-started"&gt;Cloud Foundry&lt;/a&gt;, and &lt;a href="https://docs.spring.io/spring-cloud-dataflow-server-kubernetes/docs/1.6.0.M2/reference/htmlsingle/#kubernetes-getting-started"&gt;Kubernetes&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="here-are-the-highlights"&gt;&lt;a class="anchor" href="#here-are-the-highlights"&gt;&lt;/a&gt;Here are the highlights&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Task Scheduling on PCF&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Angluar 6 update&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;App Hosting Tool&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="task-scheduling-on-pcf"&gt;&lt;a class="anchor" href="#task-scheduling-on-pcf"&gt;&lt;/a&gt;Task Scheduling on PCF&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We are happy to introduce the native integration of &lt;a href="https://docs.pivotal.io/pcf-scheduler/"&gt;PCF Scheduler&lt;/a&gt; in the &lt;a href="http://cloud.spring.io/spring-cloud-dataflow-server-cloudfoundry/#"&gt;SCDF for Cloud Foundry&lt;/a&gt; implementation!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;A typical workflow for batch data processing involves scheduling batch applications. For example, the scheduler system accepts a cron expression and launches the application whenever the expression matches the current time.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Data Flow provides the ability to schedule and unschedule a task definition.  The schedule is based on a cron expression.  Building upon the &lt;a href="https://github.com/pivotal-cf/pcf-java-client"&gt;PCF Java Client&lt;/a&gt; the team has created a portable scheduler interface in the &lt;a href="https://github.com/spring-cloud/spring-cloud-scheduler"&gt;Spring Cloud Scheduler SPI project&lt;/a&gt; (Service Provider Interface) and an implementation for PCF, &lt;a href="https://github.com/spring-cloud/spring-cloud-scheduler-cloudfoundry"&gt;Spring Cloud Scheduler for Cloud Foundry&lt;/a&gt;.  The Dashboard provides access to schedule and unschedule a task as shown in the screenshot below.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="imageblock"&gt;
+&lt;div class="content"&gt;
+&lt;img src="https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/v1.6.0.M2/spring-cloud-dataflow-docs/src/main/asciidoc/images/dataflow-scheduling-create.png" alt="Create Schedule"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="imageblock"&gt;
+&lt;div class="content"&gt;
+&lt;img src="https://raw.githubusercontent.com/spring-cloud/spring-cloud-dataflow/v1.6.0.M2/spring-cloud-dataflow-docs/src/main/asciidoc/images/dataflow-scheduling-list.png" alt="List and Delete Schedules"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="angular-6"&gt;&lt;a class="anchor" href="#angular-6"&gt;&lt;/a&gt;Angular 6&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The SCDF Dashboard and Spring Flo stack have been upgraded to Angular 6. Several downstream dependencies including JointJS were updated as well. Though the test harness runs through a variety of browsers for incremental validation, if you see any abnormalities in different browsers, feel free to open an issue or bring it up in Gitter or StackOverflow. We appreciate any feedback.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="app-hosting-tool"&gt;&lt;a class="anchor" href="#app-hosting-tool"&gt;&lt;/a&gt;App Hosting Tool&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;While Maven is the recommended approach for Stream/Task App artifact resolution, some users cannot use Maven for a variety of reasons. We have also heard about customers installing SCDF in a no-internet zone and can&amp;#8217;t reach out to resolve Stream/Task artifacts via Maven, HTTP or a Docker registry.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;To address these concerns, we have developed an App Hosting Tool, which mimics a standalone App repository, but in reality, is a Spring Boot App serving the App artifacts through HTTP. You can read more about the App Tool and the getting-started instructions from &lt;a href="https://github.com/spring-cloud-stream-app-starters/scdf-app-repo"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="stay-in-touch"&gt;&lt;a class="anchor" href="#stay-in-touch"&gt;&lt;/a&gt;Stay in touch&amp;#8230;&amp;#8203;&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;As always, we welcome feedback and contributions, so please reach out to us on &lt;a href="https://stackoverflow.com/questions/tagged/spring-cloud-dataflow"&gt;Stackoverflow&lt;/a&gt; or &lt;a href="https://github.com/spring-cloud/spring-cloud-dataflow/issues"&gt;GitHub&lt;/a&gt; or via &lt;a href="https://gitter.im/spring-cloud/spring-cloud-dataflow"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Cloud Stream Elmhurst.SR1 Released</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/07/12/spring-cloud-stream-elmhurst-sr1-released" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Soby Chacko</name>
+    </author>
+    <id>tag:spring.io,2018-07-12:3330</id>
+    <updated>2018-07-12T16:15:53Z</updated>
+    <content type="html">&lt;p&gt;On behalf of the team, I am pleased to announce the availability of Spring Cloud Stream Elmhurst.SR1 release train. This is the first maintenance release on the Elmhurst line and includes several bug fixes and minor enhancements in core Spring Cloud Stream (2.0.1.RELEASE), Kafka binder (2.0.1.RELEASE), and the Rabbit binder (2.0.1.RELEASE). Please take a look at the &lt;a href="https://github.com/spring-cloud/spring-cloud-stream-starters/releases/tag/vElmhurst.SR1"&gt; release notes&lt;/a&gt; for more details. The release can be found in &lt;a href="https://repo1.maven.org/maven2/org/springframework/cloud/spring-cloud-stream-dependencies/Elmhurst.SR1/"&gt;maven central&lt;/a&gt;. Detailed descriptions can be found in the &lt;a href="https://docs.spring.io/spring-cloud-stream/docs/Elmhurst.SR1/reference/htmlsingle/"&gt;reference documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We thank all our community members who contributed valuable additions to this release. &lt;/p&gt;
+&lt;p&gt;And, as always, we welcome feedback: either in &lt;a href="https://github.com/spring-cloud/spring-cloud-stream"&gt;GitHub&lt;/a&gt;, on &lt;a href="http://stackoverflow.com/questions/tagged/spring-cloud-stream"&gt;Stack Overflow&lt;/a&gt;, on &lt;a href="https://gitter.im/spring-cloud/spring-cloud-stream"&gt;Gitter&lt;/a&gt; or on &lt;a href="https://twitter.com/springcloud"&gt;Twitter&lt;/a&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>This Week in Spring - July 10th, 2018</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/07/10/this-week-in-spring-july-10th-2018" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2018-07-10:3327</id>
+    <updated>2018-07-10T20:00:00Z</updated>
+    <content type="html">&lt;p&gt;Hi Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! This week I&amp;rsquo;m in sunny (warm!) Los Angeles for the epic SpringOne Tour Los Angeles event and then it&amp;rsquo;s off to Boston for meetings. We&amp;rsquo;ve got a lot to cover, as usual, so let&amp;rsquo;s get to it! &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Pivotal Cloud Foundry 2.2 is out and &lt;a href="https://content.pivotal.io/blog/how-pivotal-cloud-foundry-2-2-helps-you-improve-the-metrics-that-matter"&gt;it has smarter metrics support&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Do you want to begin in open-source or, at least, begin contributing to Spring Boot? We have a &lt;em&gt;ton&lt;/em&gt; of &lt;a href="https://github.com/spring-projects/spring-boot/issues?q=is%3Aopen+is%3Aissue+label%3A%22status%3A+ideal-for-contribution%22"&gt;open-issues where we&amp;rsquo;d welcome external contributions&lt;/a&gt;!&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/07/05/spring-cloud-data-flow-1-6-m1-and-1-5-2-released"&gt;Spring Cloud Data Flow 1.6 M1 and 1.5.2 released&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/07/05/spring-tool-suite-3-9-5-released"&gt;Spring Tool Suite 3.9.5 released&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Follow the &lt;a href="https://jira.spring.io/browse/SPR-16991"&gt;progress on Graal supporting Spring Boot-based&lt;/a&gt; applications for native images&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2018/07/03/spring-social-end-of-life-announcement"&gt;Spring Social End of Life Announcement&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;I love this post that looks at how e-Bay does faster integration testing &lt;a href="https://www.ebayinc.com/stories/blogs/tech/your-own-spring-test-context/"&gt;of Spring Boot-based applications&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Check out &lt;a href="https://github.com/openzipkin/zipkin/releases/tag/2.10.1"&gt;the migration to v2 in Zipkin 2.10&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;This is an oldie-but-a-goodie that I found myself needing today: it looks at &lt;a href="https://solace.com/blog/devops/solace-java-meet-spring-boot-starters"&gt;the Solace messaging technology&amp;rsquo;s Spring Boot starters&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;The Clever Cloud blog has &lt;a href="https://www.clever-cloud.com/blog/engineering/2018/07/09/specifics-paas-deployment-jhipster/"&gt;a nice post on how to adapt a JHipster Spring Boot and Angular-based&lt;/a&gt; application for deployment on their platform&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/springcentral/status/1016747383483322368"&gt;https://twitter.com/springcentral/status/1016747383483322368&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Learn how to install multicloud, enterprise-grade CloudFoundry with HAProxy. &lt;a href="https://www.cloudfoundry.org/blog/video-how-to-install-multi-cloud-enterprise-grade-cloud-foundry-haproxy/"&gt;Watch the video now&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Community legend Martin Deinum has a nice &lt;a href="https://mdeinum.github.io/2018-07-04-PropertySource-with-yaml-files/"&gt;post on loading properties with &lt;code&gt;PropertySource&lt;/code&gt; and &lt;code&gt;.yaml&lt;/code&gt; files&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;The Spring Cloud-inspired Steeltoe.NET library &lt;a href="https://twitter.com/steeltoeoss/status/1016476508292911104?s=12"&gt;supports microservices patterns for .NET-based applications&lt;/a&gt; and it is &lt;em&gt;hot&lt;/em&gt;! It&amp;rsquo;s had over 500k downloads on Nuget!&lt;/li&gt;
+  &lt;li&gt;I love this post on using the &lt;a href="https://medium.com/chaosiq/exploring-spring-boot-resiliency-on-aws-eks-6afcd385b92d"&gt;Chaos Monkey for Spring Boot on AWS EKS&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring legend Thomas Darimont just upgraded his &lt;a href="https://github.com/thomasdarimont/spring-boot-admin-keycloak-example"&gt;example&lt;/a&gt; demonstrating how to protect Spring Boot Admin 2.0.1 UI and Spring Boot 2.0.3 Actuator endpoints with Keycloak 4.1.0 to the latest versions&lt;/li&gt;
+  &lt;li&gt;In which community hero Nicolas Frankel brilliantly revisits a fundamental question that we might at this point take for granted: &lt;a href="https://blog.frankel.ch/on-containers-frameworks/"&gt;&lt;em&gt;why&lt;/em&gt; should we use a framework or a dependency injection container&lt;/a&gt; like Spring? Why use a framework or a dependency injection container at all?&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://www.davsclaus.com/2018/07/apache-camel-222-released-with-spring.html?m=1"&gt;Apache Camel 2.2.2&lt;/a&gt; - the first with support for Spring Boot 2! - is now available!&lt;/li&gt;
+  &lt;li&gt;Check out our very own Mario Gray&amp;rsquo;s look &lt;a href="https://medium.com/@mgray_94552/reactive-spring-security-authentication-ba6e38ce0ae7"&gt;at authentication with reactive Spring Security &lt;/a&gt;. This is one in a series of posts that look at security. Check out &lt;a href="https://medium.com/@mgray_94552/reactive-authorization-in-spring-security-943e6534aaeb"&gt;the last installment here&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;This Codecentric post, by Benjamin Wilms, is a must-read manifesto for chaos engineering in general and &lt;a href="https://blog.codecentric.de/en/2018/07/chaos-engineering/"&gt;a useful background for anybody considering the Chaos Monkey for Spring Boot&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;This is an oldie-but-a-goodie: &lt;a href="https://mjg123.github.io/2017/12/02/FnProject-Spring-Cloud-Function.html"&gt;Oracle&amp;rsquo;s serverless project, Project Fn, supports Spring Cloud Function&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;The amazing Jonas Hecht&amp;rsquo;s article &lt;a href="https://twitter.com/jonashackt/status/1014956570801819648?s=12"&gt;on Spring Boot and Vue.js&lt;/a&gt; is now available in the latest installment of the German-language magazine JavaMagazin.&lt;/li&gt;
+  &lt;li&gt;This pull-request from Hibernate developer advocate Vlad Mihalcea looks &lt;em&gt;very&lt;/em&gt; promising &lt;em&gt;and&lt;/em&gt; the discussion &lt;a href="https://twitter.com/vlad_mihalcea/status/1014949370528182272?s=12"&gt;therein is illuminating, too&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Graal developer advocate Oleg ?elajev has a great post demonstrating some unique possibilities when running Spring Boot-based applications on Graal: &lt;a href="https://medium.com/graalvm/enhance-your-java-spring-application-with-r-data-science-b669a8c28bea"&gt;&lt;em&gt;Enhance your Java Spring application with R data science&lt;/em&gt;&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Wojciech Marusarz, on the Nexocode blog, has a great post introducing &lt;a href="https://www.nexocode.com/blog/posts/reactive-programming/"&gt;reactive programming&lt;/a&gt; (in terms of the basics, but with brief examples using Reactor and Spring)&lt;/li&gt;
+  &lt;li&gt;This is an &lt;a href="https://twitter.com/gprussell/status/1014930928664182784?s=12"&gt;interesting nugget of knowledge&lt;/a&gt; from Spring Integration lead &lt;a href="http://twitter.com/gprussell"&gt;Gary Russell&lt;/a&gt;: did you know that you could use Spring Integration/JMS to talk to QPID (AMQP 1.0) using &lt;a href="https://qpid.apache.org/components/jms/index.html"&gt;the QPID JMS bridge&lt;/a&gt; and this should be a meaningful channel to connect Spring Integration to other AMQP 1.0-compliant brokers?&lt;/li&gt;
+  &lt;li&gt;Check out this post on how to build services for Cloud Foundry and Kubernetes using &lt;a href="https://www.cloudfoundry.org/blog/video-how-to-services-cloud-foundry-kubernetes-using-open-service-broker-api/"&gt;the Open Service Broker API&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;This is an interesting post on &lt;a href="https://t.co/AeUTDKFEDa?ssr=true"&gt;Blockchain with Java using Ethereum, web3j and Spring Boot&lt;/a&gt;. Good job Piotr Mi?kowski!&lt;/li&gt;
+  &lt;li&gt;There&amp;rsquo;s now &lt;a href="https://twitter.com/springcloud/status/1014886163872649217"&gt;PHP support for Spring Cloud Pipelines!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Be sure to register for this July 18 webinar: &lt;a href="https://twitter.com/cloudfoundry/status/1014800807630385152"&gt;&lt;em&gt;Bring Your Own Code vs. Bring Your Own Container&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Congratulations to Thibaud Lepretre who released the first version (beta) supporting Spring Boot 2 &lt;code&gt;cas-security-spring-boot-starter&lt;/code&gt; during the recent Pivotal Paris event! &lt;a href="https://github.com/kakawait/cas-security-spring-boot-starter/blob/master/CHANGELOG.md"&gt;See the project for details!&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Spring Cloud Data Flow 1.6 M1 and 1.5.2 released</title>
     <link rel="alternate" href="https://spring.io/blog/2018/07/05/spring-cloud-data-flow-1-6-m1-and-1-5-2-released" />
@@ -1588,72 +1727,5 @@ dependencies {&#xD;
     ...&#xD;
 }
 &lt;/code&gt;&lt;/pre&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring IO Platform Cairo SR2</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/06/18/spring-io-platform-cairo-sr2" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Andy Wilkinson</name>
-    </author>
-    <id>tag:spring.io,2018-06-18:3310</id>
-    <updated>2018-06-18T14:27:46Z</updated>
-    <content type="html">&lt;p&gt;I am pleased to announce that &lt;a href="http://platform.spring.io/platform"&gt;Spring IO Platform&lt;/a&gt; Cairo-SR2 is now available from both &lt;a href="https://repo.spring.io/release"&gt;repo.spring.io&lt;/a&gt; and Maven Central. &lt;/p&gt;
-&lt;p&gt;This maintenance release upgrades the versions of a number of the projects in the Platform:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Spring AMQP 2.0.4&lt;/li&gt;
-  &lt;li&gt;Spring Boot 2.0.3&lt;/li&gt;
-  &lt;li&gt;Spring Cloud Connectors 2.0.2&lt;/li&gt;
-  &lt;li&gt;Spring Data Kay SR8&lt;/li&gt;
-  &lt;li&gt;Spring Framework 5.0.7&lt;/li&gt;
-  &lt;li&gt;Spring Integration 5.0.6&lt;/li&gt;
-  &lt;li&gt;Spring Kafka 2.1.7&lt;/li&gt;
-  &lt;li&gt;Spring Security OAuth2 2.2.2&lt;/li&gt;
-  &lt;li&gt;Spring Security 5.0.6&lt;/li&gt;
-  &lt;li&gt;Spring Session Apple SR3&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The versions of a number of third-party dependencies have also been updated.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://platform.spring.io/platform"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/platform/docs/Cairo-SR2/reference/htmlsingle"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring IO Platform Brussels SR11</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/06/18/spring-io-platform-brussels-sr11" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Andy Wilkinson</name>
-    </author>
-    <id>tag:spring.io,2018-06-18:3309</id>
-    <updated>2018-06-18T12:22:42Z</updated>
-    <content type="html">&lt;p&gt;I am pleased to announce that &lt;a href="http://platform.spring.io/platform"&gt;Spring IO Platform&lt;/a&gt; Brussels-SR11 is now available from both &lt;a href="https://repo.spring.io/release"&gt;repo.spring.io&lt;/a&gt; and Maven Central. &lt;/p&gt;
-&lt;p&gt;This maintenance release upgrades the versions of a number of the projects in the Platform:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Spring AMQP 1.7.8&lt;/li&gt;
-  &lt;li&gt;Spring Boot 1.5.14&lt;/li&gt;
-  &lt;li&gt;Spring Cloud Connectors 1.2.6&lt;/li&gt;
-  &lt;li&gt;Spring Data Ingalls SR13&lt;/li&gt;
-  &lt;li&gt;Spring Framework 4.3.18&lt;/li&gt;
-  &lt;li&gt;Spring Integration 4.3.17&lt;/li&gt;
-  &lt;li&gt;Spring Security 4.2.7&lt;/li&gt;
-  &lt;li&gt;Spring Session 1.3.3&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The versions of a number of third-party dependencies have also been updated.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://platform.spring.io/platform"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/platform/docs/Brussels-SR11/reference/htmlsingle"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Project Vulnerability Reports Published</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/06/14/spring-project-vulnerability-reports-published" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Brian Clozel</name>
-    </author>
-    <id>tag:spring.io,2018-06-14:3307</id>
-    <updated>2018-06-14T21:00:53Z</updated>
-    <content type="html">&lt;p&gt;The following CVEs have been published today:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href="https://pivotal.io/security/cve-2018-11039"&gt;CVE-2018-11039&lt;/a&gt;: Cross Site Tracing (XST) with Spring Framework&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://pivotal.io/security/cve-2018-11040"&gt;CVE-2018-11040&lt;/a&gt;: JSONP enabled by default in MappingJackson2JsonView&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Fixes for those vulnerabilities have been released with &lt;a href="https://spring.io/blog/2018/06/13/spring-framework-5-0-7-and-4-3-18-available-now"&gt;Spring Framework 5.0.7 &amp;amp; 4.3.18&lt;/a&gt;, &lt;a href="https://spring.io/blog/2018/06/14/spring-boot-1-5-14-available-now"&gt;Spring Boot 1.5.14&lt;/a&gt; and &lt;a href="https://spring.io/blog/2018/06/14/spring-boot-2-0-3-available-now"&gt;Spring Boot 2.0.3&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Please, review the information in the CVE reports and upgrade immediately.&lt;/p&gt;</content>
   </entry>
 </feed>
