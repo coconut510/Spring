@@ -23,12 +23,11 @@ Servlet Container ¿¡¼­ HTTP ÇÁ·ÎÅäÄÝÀ» ÅëÇØ µé¾î¿À´Â ¸ðµç ¿äÃ»À» °¡Àå ¸ÕÀú Ã³¸®Ç
 Front Controller
 
 ## HandlerMapping ##
--> Å¬¶óÀÌ¾ðÆ®ÀÇ ¿äÃ»À» Ã³¸®ÇÒ Controller ¸ÅÇÎ °ªÀ» °¡Áö°í ÀÖÀ¸
+-> Å¬¶óÀÌ¾ðÆ®ÀÇ ¿äÃ»À» Ã³¸®ÇÒ Controller ¸ÅÇÎ °ªÀ» °¡Áö°í ÀÖÀ½
 
 ## Controller ##
 -> ½ÇÁúÀûÀÎ Å¬¶óÀÌ¾ðÆ®ÀÇ ¿äÃ»À» Ã³¸®ÇÔ
 -> Ã³¸®ÈÄ ¸®ÅÏ°ªÀ¸·Î view name °ªÀ» ¸®ÅÏÇÔ
-
 
 ## ViewResolver ##
 -> Controller °¡ ¸®ÅÏÇÔ View name À¸·Î ½ÇÇàµÉ JSP °æ·Î¸¦ °¡Áö°í ÀÖÀ½
@@ -39,7 +38,7 @@ Front Controller
 
 DispatcherServlet À» µî·ÏÇÒ¶§´Â
 
-web.xml¿¡¼­
+web.xml ¿¡¼­
 
     <description></description>
     <display-name>action</display-name>
