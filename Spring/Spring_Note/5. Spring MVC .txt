@@ -1,0 +1,159 @@
+@ MVC
+-> 웹에서 처리하는 로직을 Model, View, Controller 로 분류하여 처리하는 방식
+-> 기존에 배웠던 방식을 생각해보면 Model (Service, DAO, VO)
+	View(JSP), Controller(Servlet)
+
+
+@ Spring MVC
+-> MVC의 기본 흐름은 View-> Controller -> Model -> Controller -> View 형태
+-> Spring MVC는 View, Contoller , Model 부분을 유지보수 및 확장성을 고려하여
+추가적인 설계를 하였음
+-> Spring MVC 구조
+	- DispatcherServlet (Front Controller 라고도 함 -> 요청을 받는 역할)
+	- HandlerMapping (서블릿 url을 매핑해주는 역할)
+	- Controller ( 메소드, 어노테이션으로 url을 선언해줘야 매칭이 됨)
+	- ViewResolver ( 컨트롤러에서 받은 리턴 값을 바탕으로 뷰페이지 연결)
+	- Service ( @Service 추가)
+	- DAO (@Repository 추가)
+	- View ( 그냥 뷰)
+
+## DispatcherServlet ##
+-> 유일한 서블릿 클래스로서
+Servlet Container 에서 HTTP 프로토콜을 통해 들어오는 모든 요청을 가장 먼저 처리하는
+Front Controller
+
+## HandlerMapping ##
+-> 클라이언트의 요청을 처리할 Controller 매핑 값을 가지고 있으
+
+## Controller ##
+-> 실질적인 클라이언트의 요청을 처리함
+-> 처리후 리턴값으로 view name 값을 리턴함
+
+
+## ViewResolver ##
+-> Controller 가 리턴함 View name 으로 실행될 JSP 경로를 가지고 있음
+
+## View ##
+-> 실제 클라이언트들에게 보여질 Page
+
+
+DispatcherServlet 을 등록할때는
+
+web.xml에서
+
+    <description></description>
+    <display-name>action</display-name>
+
+위에 부분 삭제해준다.
+
+인코딩을 자동으로 해주려면
+
+<filter>
+  	<filter-name>characterEncoding</filter-name>
+  	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>utf-8</param-value>
+  	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>characterEncoding</filter-name>
+  	<url-pattern>*.do</url-pattern>
+  </filter-mapping>
+
+위의 코드를 web.xml에 넣으면 된다.
+
+
+pom.xml의 dependencies 아래에 추가해준다.
+	<dependencies>
+		<!-- DBCP(Data Base Connection Pool)-->
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+		
+		<!-- Spring -->
+
+
+ojdbc-6 설정
+추가해주고
+	<repositories>
+		<repository>
+			<id>oracle</id>
+			<name>ORACLE JDBC Repository</name>
+			<url>https://code.lds.org/nexus/content/groups/main-repo</url>
+		</repository>
+	</repositories>
+
+
+dependencies 안에
+
+	<!-- OJDBC 6 -->
+		<dependency>
+			<groupId>com.jslsolucoes</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.1.0</version>
+		</dependency>
+
+추가
+
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+        <dependency>
+               <groupId>org.springframework</groupId>
+               <artifactId>spring-jdbc</artifactId>
+               <version>5.0.6.RELEASE</version>
+        </dependency>
+		 
+
+위에거도 추가
+
+src -> main -> webapp-> WEB-INF -> spring -> root-context.xml 안에 
+
+<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username" value="spring"/>
+		<property name="password" value="spring"/>
+	</bean>		
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+이것도 추가.
+
+
+
+
+return "redirect:/index.jsp";// viewResolver 관여 없이 경로를 직접 설정해 줄때.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
